@@ -24,11 +24,15 @@ export class MusicService {
         },
     ];
 
-    /**
+    /** Documentation
      * @name public contructor
      */
     constructor() { }
 
+    /**
+     * @name findAll
+     * @return { MusicDto[] } : retourne une liste d'object MusicDto
+     */
     findAll(): MusicDto[] {
         // MusicDto[] car retourne un tableau
         const result = this.musics;
@@ -40,6 +44,11 @@ export class MusicService {
         return result;
     }
 
+    /**
+     * @name findById
+     * @param id : string
+     * @return { MusicDto } : un object MusicDto
+     */
     findById(id: string): MusicDto {
         const result = this.musics.find(music => music.id === +id);
         // +id car + devant un int transtype en string
@@ -51,11 +60,18 @@ export class MusicService {
         return result;
     }
 
+    /**
+     * @name create
+     * @param music : MusicDto
+     */
     create(music: MusicDto): void {
         const musics: MusicDto[] = this.findAll();
         this.musics.push({ id: musics.length + 1, ...music })
     }
 
+    /**
+     * @name create
+     */
     update(id: string, music: MusicDto): void {
         const result: MusicDto = this.findById(id);
 
@@ -64,6 +80,10 @@ export class MusicService {
         }
     }
 
+    /**
+     * @name deleteById
+     * @param id : string
+     */
     deleteById(id: string): void {
         // void car ne renvoie rien (delete)
         const index: number = this.musics.findIndex(music => music.id === +id);
