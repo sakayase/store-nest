@@ -38,10 +38,10 @@ describe('VideoService', () => {
       // Given
 
       // When 
-      service.deleteById('4');
+      service.deleteById('3');
 
       // Then
-      expect(service.findAll().length).toBe(3);
+      expect(service.findAll().length).toBe(2);
     })
   })
 });
