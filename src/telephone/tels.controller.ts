@@ -4,6 +4,7 @@ import { registerDecorator } from 'class-validator';
 import { TelephoneDto } from 'src/dto/telephone/tel.dto';
 import { Telephone } from './tel.schema';
 import { TelephonesService } from './tels.service';
+import { ITelephone } from './tel.interface';
 
 @ApiTags('telephone')
 @Controller('telephone')
@@ -13,13 +14,13 @@ export class TelephonesController {
 
     /**
      * @name public constructor
-     * @param { MusicService } service
+     * @param { TelephonesService } service
      */
     constructor(private readonly service: TelephonesService) { }
 
     @HttpCode(HttpStatus.OK)
     @Get()
-    findAll(): Promise<Telephone[]> {
+    findAll(): Promise<ITelephone[]> {
         return this.service.findAll();
     }
 

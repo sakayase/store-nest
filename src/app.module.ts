@@ -19,8 +19,9 @@ import { TelephonesModule } from './telephone/tels.module';
       envFilePath: '.env',
     }),
     MongooseModule.forRoot(`mongodb://${process.env.MONGODB_IP}:${process.env.MONGODB_PORT}/${process.env.MONGODB_NAME}`),
-    MusicModule, VideoModule, TelephonesModule],
-  controllers: [AppController, MusicController, VideoController, TelephonesController],
-  providers: [AppService, MusicService, VideoService, TelephonesService],
+    MusicModule, VideoModule, TelephonesModule ],
+  controllers: [AppController, MusicController, VideoController ],
+  providers: [AppService, MusicService, VideoService ],
 })
 export class AppModule { }
+// 
